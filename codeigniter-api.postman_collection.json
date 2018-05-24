@@ -1,0 +1,113 @@
+{
+	"info": {
+		"name": "codeigniter-api",
+		"_postman_id": "0ec5aa4b-2c38-4e4a-961b-fe62736f99fa",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://127.0.0.1:8080/api/city_api/city",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"country\": \"Egypt\",\n\t\"province\": \"Cairo\",\n\t\"city\": \"Roxy\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/city_api/city/id/171",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"city_api",
+						"city",
+						"id",
+						"171"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8080/api/city_api/city Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"country\": \"Egypt\",\n\t\"province\": \"Cairo\",\n\t\"city\": \"\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/city_api/city",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"city_api",
+						"city"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8080/api/city_api/city",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/city_api/city/id/168",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"city_api",
+						"city",
+						"id",
+						"168"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

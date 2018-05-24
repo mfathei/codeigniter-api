@@ -34,4 +34,11 @@ class City_model extends CI_Model
         $res = $this->db->update($this->table, $data);
         return $res;
     }
+
+    public function delete($id)
+    {
+        $this->db->where("id", $id);
+        $res = $this->db->delete($this->table);
+        return $res;
+    }
 }

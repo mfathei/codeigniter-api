@@ -103,6 +103,27 @@ class City_api extends REST_Controller
         } else {
             $this->response(["error" => "Failed to update, please try again"], 500); // internal server error
         }
+    }
 
+    public function city_delete(){
+        $error  = "";
+        $cities = null;
+        $id     = $this->get("id");
+
+        if (!$this->get("id")) {
+            $this->response(["error" => "You need to provide city id to delete it"], 400); // bad request
+        } else {
+            $cities = $this->city_model->fetch_single($id);
+            if (empty($cities)) {
+                $this->response(["error" => "City Not Found"], 404);
+            }
+        }
+
+        $result = $this->city_model->delete($id);
+        if ($result) {
+            $this->response($cities, 200); // OK
+        } else {
+            $this->response(["error" => "Failed to delete, please try again"], 500); // internal server error
+        }
     }
 }
