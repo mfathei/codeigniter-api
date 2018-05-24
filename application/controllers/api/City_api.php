@@ -59,4 +59,50 @@ class City_api extends REST_Controller
         $city = $this->city_model->create($data);
         $this->response($city, 201); // created
     }
+
+    public function city_put()
+    {
+        $error  = "";
+        $cities = null;
+        $id     = $this->get("id");
+
+        if (!$this->get("id")) {
+            $this->response(["error" => "You need to provide city id to update it"], 400); // bad request
+        } else {
+            $cities = $this->city_model->fetch_single($id);
+            if (empty($cities)) {
+                $this->response(["error" => "City Not Found"], 404);
+            }
+        }
+
+        $data = array(
+            "country"  => $this->put('country'),
+            "province" => $this->put('province'),
+            "city"     => $this->put('city'),
+        );
+
+        if (empty($data["country"])) {
+            $error .= "country";
+        }
+
+        if (empty($data["province"])) {
+            $error .= "province";
+        }
+
+        if (empty($data["city"])) {
+            $error .= "city";
+        }
+
+        if (!empty($error)) {
+            $this->response(["error" => "country, province and city are required fields"], 400); // bad request
+        }
+
+        $result = $this->city_model->update($id, $data);
+        if ($result) {
+            $this->response($cities, 200); // OK
+        } else {
+            $this->response(["error" => "Failed to update, please try again"], 500); // internal server error
+        }
+
+    }
 }

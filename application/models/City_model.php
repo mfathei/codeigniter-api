@@ -27,4 +27,11 @@ class City_model extends CI_Model
         $city = $this->db->limit(1, 0)->get($this->table);
         return $city->result();
     }
+
+    public function update($id, $data)
+    {
+        $this->db->where("id", $id);
+        $res = $this->db->update($this->table, $data);
+        return $res;
+    }
 }
